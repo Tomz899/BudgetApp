@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-def index(request):
-    return HttpResponse("Witamy w Twojej aplikacji budżetowej.")
+def budget(request):
+    return render(request, 'budget/budget.html')
