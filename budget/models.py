@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class UserAccount(models.Model):
     username = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
@@ -8,5 +9,6 @@ class UserAccount(models.Model):
 class BudgetData(models.Model):
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
     user_budget = models.IntegerField()
+    income = models.IntegerField()
     expenses = models.IntegerField()
-    category = models.CharField(max_length=15)
+    category = models.CharField(max_length=20)

@@ -22,12 +22,12 @@
         <form action="" method="post">
             {% csrf_token %}
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" name="username" id="username">
+                <label for="name" class="form-label">Username</label>
+                {{ form.username }}
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password">
+                {{ form.password }}
             </div>
             <div class="button" style="margin-top:30px;">
                 <button type="submit" class="btn btn-primary">Submit</button><span style="margin-left:5px;"><a
