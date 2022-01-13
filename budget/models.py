@@ -1,14 +1,10 @@
 from django.db import models
-
-
-class UserAccount(models.Model):
-    username = models.CharField(max_length=20)
-    password = models.CharField(max_length=20)
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class BudgetData(models.Model):
-    user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
-    user_budget = models.IntegerField()
-    income = models.IntegerField()
-    expenses = models.IntegerField()
     category = models.CharField(max_length=20)
+    cost = models.FloatField(default=0)
+    date_added = models.DateTimeField(default=timezone.now)
+    user_expense = models.ForeignKey(User, on_delete=models.CASCADE, default="")
