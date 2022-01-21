@@ -20,10 +20,10 @@ from users import views as user_views
 
 
 urlpatterns = [
-    path('', include('budget.urls')),
-    path('budget/', include('budget.urls')),
-    path('admin/', admin.site.urls),
-    path('register/', user_views.register, name='register'),
-    path('login/', user_views.loginPage, name='login'),
-    path('logout/', user_views.logoutUser, name='logout'),
+    path("", include("budget.urls")),
+    path("budget/", include("budget.urls")),
+    path("admin/", admin.site.urls),
+    path("register/", user_views.register, name="register"),
+    path("login/", user_views.loginPage, name="login"),
+    path("logout/", user_views.logoutUser, name="logout"),
 ]
