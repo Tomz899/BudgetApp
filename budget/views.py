@@ -1,7 +1,12 @@
-from django.shortcuts import render
-from .models import BudgetData
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.utils import timezone
+from .models import BudgetData
+from .forms import AddItem
 
 
 @login_required
@@ -14,12 +19,29 @@ def budget(request):
         Sum("cost")
     )
 
-    return render(
-        request,
-        "budget/budget.html",
-        context={
-            "user": request.user,
-            "expense_items": expense_items,
-            "total_cost": total_cost,
-        },
-    )
+    # add item{category, cost} form
+    form = AddItem(request.POST)
+    if form.is_valid():
+        form = form.save(commit=False)
+        form.user_expense = request.user
+        form.date_added = timezone.now()
+        form.save()
+        return HttpResponseRedirect(reverse("budget"))
+    else:
+        return render(
+            request,
+            "budget/budget.html",
+            context={
+                "user": request.user,
+                "expense_items": expense_items,
+                "total_cost": total_cost,
+                "form": form,
+            },
+        )
+
+
+def delete_item(request, item_id):
+    item = BudgetData.objects.get(pk=item_id)
+    item.delete()
+    messages.success(request, ("Item Deleted!"))
+    return redirect("budget")

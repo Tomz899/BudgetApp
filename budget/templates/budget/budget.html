@@ -8,26 +8,11 @@
 <h1>Total expenses: {{value|floatformat:2}} zł</h1>
 {% endfor %}
 
-<div class="row g-2">
-  <div class="col-md">
-    <div class="form-floating">
-      <label for="floatingSelectGrid">Select category</label>
-      <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-        <option selected>---</option>
-        <option value="1">Spożywcze</option>
-        <option value="2">Chemia</option>
-        <option value="3">Usługi</option>
-      </select>
-    </div>
-  </div>
-  <div class="col-md">
-    <div class="form-floating">
-      <label for="floatingInputGrid">Cost</label>
-      <input type="cost" class="form-control" id="floatingInputGrid" placeholder="cost" value="Input cost value">
-      <button class="btn btn-primary" type="submit">Add</button>
-    </div>
-  </div>
-</div>
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Add item">
+</form>
 
 <div class="container-sm">
   <h2>Expenses</h2>
@@ -38,6 +23,8 @@
         <th>Category</th>
         <th>Cost</th>
         <th>Date added</th>
+        <th>Item ID</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -46,6 +33,10 @@
         <td>{{ expense_item.category }}</td>
         <td>{{ expense_item.cost|floatformat:2 }} zł</td>
         <td>{{ expense_item.date_added|date:"d.m.Y" }}</td>
+        <td>{{ expense_item.id }}</td>
+        {% for items in item %}
+        <td><a href="{% url 'delete-item' item_id %}" class="btn btn-outline-danger btn-sm">Delete item</a></td>
+        {% endfor %}
       </tr>
       {% endfor %}
     </tbody>
