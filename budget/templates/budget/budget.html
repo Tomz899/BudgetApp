@@ -8,16 +8,18 @@
 <h1>Total expenses: {{value|floatformat:2}} zł</h1>
 {% endfor %}
 
+<div class="form">
 <form method="post">
   {% csrf_token %}
   {{ form }}
   <input type="submit" value="Add item">
 </form>
+</div>
 
 <div class="container-sm">
   <h2>Expenses</h2>
   <p>Your expenses ordered by the newest:</p>            
-  <table class="table table-hover">
+  <table class="table table-hover w-auto">
     <thead>
       <tr>
         <th>Category</th>
@@ -34,9 +36,7 @@
         <td>{{ expense_item.cost|floatformat:2 }} zł</td>
         <td>{{ expense_item.date_added|date:"d.m.Y" }}</td>
         <td>{{ expense_item.id }}</td>
-        {% for items in item %}
-        <td><a href="{% url 'delete-item' item_id %}" class="btn btn-outline-danger btn-sm">Delete item</a></td>
-        {% endfor %}
+        <td><a href="{% url 'delete-item' expense_item.id %}" class="btn btn-outline-danger btn-sm">Delete</a></td>
       </tr>
       {% endfor %}
     </tbody>

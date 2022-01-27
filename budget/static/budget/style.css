@@ -9,19 +9,18 @@
   padding: 10px;
 }
 
+.form {
+  background-color: #8bec93;
+  position: relative;
+}
 /* Expanses table */
 .container-sm {
-  /* width: 50%; */
-  margin-top: 20px;
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 20px;
   padding: 5px;
 }
 
-.footer {
-  position: fixed;
-  background-color: #8d8d8d;
-  text-align: center;
-  /* vertical-align: baseline; */
-  height: 50px;
-  width: 100%;
-  bottom: 0;
+.container-sm p {
+  margin-top: -5px;
 }

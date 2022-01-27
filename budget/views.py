@@ -40,8 +40,8 @@ def budget(request):
         )
 
 
-def delete_item(request, item_id):
-    item = BudgetData.objects.get(pk=item_id)
+def delete_item(request, user_id):
+    item = BudgetData.objects.get(id=user_id)
     item.delete()
     messages.success(request, ("Item Deleted!"))
     return redirect("budget")
