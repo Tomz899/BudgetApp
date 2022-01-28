@@ -1,19 +1,18 @@
 {% extends "budget/base.html" %}
 {% block title %}Budget{% endblock %}
 {% block content %} 
-
+<!-- {% load crispy_forms_tags %}   -->
 <p><h1>{{ user }} Budget Page</h1></p>
 
 {% for key, value in total_cost.items %}
 <h1>Total expenses: {{value|floatformat:2}} zł</h1>
 {% endfor %}
 
-<div class="form">
+<div class="form-group">
 <form method="post">
   {% csrf_token %}
-  {{ form }}
-  <input type="submit" value="Add item">
-</form>
+  {{ form|crispy }}
+ <input type="submit" value="Add item">
 </div>
 
 <div class="container-sm">
