@@ -1,7 +1,9 @@
 .container {
   height: auto;
   width: 80%;
-  box-shadow: 1px 1px 2px rgb(0, 0, 0);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid transparent;
 }
 
 .col-md {
@@ -9,8 +11,9 @@
   padding: 10px;
 }
 
-.form {
-  background-color: #8bec93;
+.form-group {
+  height: auto;
+  width: 20%;
   position: relative;
 }
 /* Expanses table */
@@ -19,6 +22,9 @@
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 5px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid transparent;
 }
 
 .container-sm p {
@@ -29,6 +35,15 @@
   padding: 5px;
   background-color: #f44336;
   color: white;
+  animation: hideAnimation 0s ease-in 5s;
+  animation-fill-mode: forwards;
+}
+@keyframes hideAnimation {
+  to {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
 }
 
 .closebtn {
