@@ -21,9 +21,6 @@ def budget(request):
 
     # add item{category, cost} form
     form = AddItem(request.POST)
-    form = AddItem(
-        use_required_attribute=False
-    )  # this get rid of this field is required text
     if form.is_valid():
         form = form.save(commit=False)
         form.user_expense = request.user
