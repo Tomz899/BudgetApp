@@ -1,10 +1,10 @@
 <style>
-    #messages{
-        background-color: rgb(115, 212, 131);
-        color: rgb(0, 0, 0);
-        padding: 10px;
-        margin-top: 10px;
-      }
+  #messages {
+    background-color: rgb(115, 212, 131);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    margin-top: 10px;
+  }
 </style>
 
 {% extends 'budget/base.html' %}
@@ -13,28 +13,28 @@
 {% block content %}
 
 <div class="container my-5 w-50" style="width: 30%">
-    <div class="card" style="padding:20px;">
+  <div class="card" style="padding:20px;">
 
-        {% for message in messages %}
-            <p id="messages">{{message}}</p>
-        {% endfor %}
+    {% for message in messages %}
+    <p id="messages">{{message}}</p>
+    {% endfor %}
 
-        <h2>Login</h2>
-        <form action="" method="post">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" name="username" id="username">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password">
-            </div>
-            <div class="button" style="margin-top:30px;">
-                <button type="submit" class="btn btn-primary">Submit</button><span style="margin-left:5px;"><a
-                        href="#">forget password</a></span>
-            </div>
-        </form>
-    </div>
+    <h2>Login</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" id="username">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password">
+      </div>
+      <div class="button" style="margin-top:30px;">
+        <button type="submit" class="btn btn-primary">Submit</button><span style="margin-left:5px;"><a href="#">forget
+            password</a></span>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}

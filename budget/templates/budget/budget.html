@@ -1,20 +1,22 @@
 {% extends "budget/base.html" %}
 {% block title %}Budget{% endblock %}
-{% load crispy_forms_tags %} 
-{% block content %} 
+{% load crispy_forms_tags %}
+{% block content %}
 
-<p><h1>{{ user }} Budget Page</h1></p>
+<p>
+<h1>{{ user|title}} Budget Page</h1>
+</p>
 
 {% for key, value in total_cost.items %}
 <h1>Total expenses: {{value|floatformat:2}} zł</h1>
 {% endfor %}
 
 <div class="form-group">
-<form method="post">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <input type="submit" value="Add item">
-</form>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Add item">
+  </form>
 </div>
 
 <div class="container-sm">
@@ -24,12 +26,12 @@
   {% if messages %}
   <div class="alert">
     {% for message in messages %}
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     <strong>{% if message.tags %} {% endif %} {{ message }}</strong>
     {% endfor %}
   </div>
-  {% endif %}    
-         
+  {% endif %}
+  <a href="#" class="btn btn-outline-danger btn-sm">Delete</a>
   <table class="table table-hover w-auto">
     <thead>
       <tr>
@@ -47,7 +49,7 @@
         <td>{{ expense_item.cost|floatformat:2 }} zł</td>
         <td>{{ expense_item.date_added|date:"d.m.Y" }}</td>
         <td>{{ expense_item.id }}</td>
-        <td><a href="{% url 'delete-item' expense_item.id %}" class="btn btn-outline-danger btn-sm">Delete</a></td>
+        <td><a href="{% url 'delete-item' expense_item.id %}" class="btn btn-danger btn-sm">Delete</a></td>
       </tr>
       {% endfor %}
     </tbody>
