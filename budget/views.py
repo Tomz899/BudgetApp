@@ -21,7 +21,7 @@ def budget(request):
 
     # AddItem{category, cost} form
     form = AddItem(request.POST)
-    form = AddItem(use_required_attribute=False) # ignores the field required text
+    # form = AddItem(use_required_attribute=False) # ignores the field required text
     
     if form.is_valid():
         form = form.save(commit=False)
