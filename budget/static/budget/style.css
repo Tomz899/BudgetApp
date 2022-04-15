@@ -11,6 +11,13 @@
   padding: 10px;
 }
 
+section {
+  display: flex;
+  gap: 50px;
+  align-items: top;
+  justify-content: space-start;
+}
+
 .form-group {
   height: auto;
   width: 20%;
@@ -29,6 +36,11 @@
 
 .container-sm p {
   margin-top: -5px;
+}
+
+.table-wrapper {
+  height: 650px;
+  overflow: auto;
 }
 
 .alert {

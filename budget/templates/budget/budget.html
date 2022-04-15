@@ -7,19 +7,22 @@
 <h1>{{ user|title}} Budget Page</h1>
 </p>
 
-{% for key, value in total_cost.items %}
-<h1>Total expenses: {{value|floatformat:2}} zł</h1>
-{% endfor %}
+<section>
+  <div class="form-group">
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Add item">
+    </form>
+  </div>
 
-<div class="form-group">
-  <form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Add item">
-  </form>
-</div>
+  {% for key, value in total_cost.items %}
+  <h1>Total expenses: {{value|floatformat:2}} zł</h1>
+  {% endfor %}
+</section>
 
 <div class="container-sm">
+
   <h2>Expenses</h2>
   <p>Your expenses ordered by the newest:</p>
 
@@ -31,7 +34,7 @@
     {% endfor %}
   </div>
   {% endif %}
-  <a href="#" class="btn btn-outline-danger btn-sm">Delete</a>
+  <div class="table-wrapper">
   <table class="table table-hover w-auto">
     <thead>
       <tr>
@@ -54,6 +57,7 @@
       {% endfor %}
     </tbody>
   </table>
+ </div>
 </div>
 
 {% endblock %}
