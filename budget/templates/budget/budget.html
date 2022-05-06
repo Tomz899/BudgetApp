@@ -19,6 +19,8 @@
   {% for key, value in total_cost.items %}
   <h1>Total expenses: {{value|floatformat:2}} zł</h1>
   {% endfor %}
+  <h1>Total income: 1000 zł</h1>
+  <h1>Diff: 500 zł</h1>
 </section>
 
 <div class="container-sm">
@@ -45,7 +47,7 @@
         <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
         {% endif %}
       {% endfor%}
-      
+
       {% if page_obj.has_next %}
       <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
       <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>

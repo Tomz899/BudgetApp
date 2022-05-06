@@ -18,7 +18,7 @@ def budget(request):
     )
 
     # Setting up pagination per expense_items
-    paginator = Paginator(expense_items, 10)  # Show 10 items per page.
+    paginator = Paginator(expense_items, 10, 3)  # Show 10 items per page.
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
