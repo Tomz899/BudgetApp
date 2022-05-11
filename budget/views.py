@@ -25,17 +25,30 @@ def budget(request):
     total_cost = BudgetData.objects.filter(user_expense=request.user).aggregate(
         Sum("cost")
     )
+    total_income = BudgetData.objects.filter(user_expense=request.user).aggregate(
+        Sum("income")
+    )
 
     # AddItem{category, cost} form
-    form = AddItem(request.POST)
+    a_form = AddItem()
+    b_form = AddIncome()
     # form = AddItem(use_required_attribute=False) # ignores the field required text
-
-    if form.is_valid():
-        form = form.save(commit=False)
-        form.user_expense = request.user
-        form.date_added = timezone.now()
-        form.save()
-        return HttpResponseRedirect(reverse("budget"))
+    if request.method == "POST" and "expense" in request.POST:
+        a_form = AddItem(request.POST)
+        if a_form.is_valid():
+            a_form = a_form.save(commit=False)
+            a_form.user_expense = request.user
+            a_form.date_added = timezone.now()
+            a_form.save()
+            return HttpResponseRedirect(reverse("budget"))
+    if request.method == "POST" and "income" in request.POST:
+        b_form = AddIncome(request.POST)
+        if b_form.is_valid():
+            b_form = b_form.save(commit=False)
+            b_form.user_expense = request.user
+            b_form.date_added = timezone.now()
+            b_form.save()
+            return HttpResponseRedirect(reverse("budget"))
     else:
         return render(
             request,
@@ -44,29 +57,31 @@ def budget(request):
                 "user": request.user,
                 "expense_items": expense_items,
                 "total_cost": total_cost,
-                "form": form,
+                "total_income": total_income,
+                "a_form": a_form,
+                "b_form": b_form,
                 "page_obj": page_obj,
             },
         )
 
 
-def add_income(request):
-    if request.method == "POST":
-        form = AddIncome(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.user_expense = request.user
-            form.save()
-            return HttpResponseRedirect(reverse("budget"))
-    else:
-        return render(
-            request,
-            "budget/budget.html",
-            context={
-                "user": request.user,
-                "form": form,
-            },
-        )
+# def add_income(request):
+#     if request.method == "POST":
+#         form = AddIncome(request.POST)
+#         if form.is_valid():
+#             form = form.save(commit=False)
+#             form.user_expense = request.user
+#             form.save()
+#             return HttpResponseRedirect(reverse("budget"))
+#     else:
+#         return render(
+#             request,
+#             "budget/budget.html",
+#             context={
+#                 "user": request.user,
+#                 "form": form,
+#             },
+#         )
 
 
 def delete_item(request, user_id):

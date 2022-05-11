@@ -19,7 +19,7 @@
   <div class="form-group">
     <form method="post">
       {% csrf_token %}
-      {{ form|crispy }}
+      {{ a_form|crispy }}
       <input name="expense" type="submit" value="Add item">
     </form>
   </div>
@@ -27,7 +27,9 @@
   {% for key, value in total_cost.items %}
   <h1>Total expenses: {{value|floatformat:2}} zł</h1>
   {% endfor %}
-  <h1>Total income: 1000 zł</h1>
+  {% for key, value in total_income.items %}
+  <h1>Total income: {{value|floatformat:2}} zł</h1>
+  {% endfor %}
   <h1>Diff: 500 zł</h1>
 </section>
 
