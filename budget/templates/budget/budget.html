@@ -11,8 +11,8 @@
   <div class="form-group">
     <form method="post">
       {% csrf_token %}
-      {{ form|crispy }}
-      <input type="submit" value="Add income">
+      {{ b_form|crispy }}
+      <input name="income" type="submit" value="Add income">
     </form>
   </div>
 
@@ -20,7 +20,7 @@
     <form method="post">
       {% csrf_token %}
       {{ form|crispy }}
-      <input type="submit" value="Add item">
+      <input name="expense" type="submit" value="Add item">
     </form>
   </div>
 

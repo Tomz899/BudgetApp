@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 
-from .forms import AddItem
+from .forms import AddIncome, AddItem
 from .models import BudgetData
 
 
@@ -46,6 +46,25 @@ def budget(request):
                 "total_cost": total_cost,
                 "form": form,
                 "page_obj": page_obj,
+            },
+        )
+
+
+def add_income(request):
+    if request.method == "POST":
+        form = AddIncome(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.user_expense = request.user
+            form.save()
+            return HttpResponseRedirect(reverse("budget"))
+    else:
+        return render(
+            request,
+            "budget/budget.html",
+            context={
+                "user": request.user,
+                "form": form,
             },
         )
 
