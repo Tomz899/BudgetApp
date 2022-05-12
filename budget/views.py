@@ -49,20 +49,20 @@ def budget(request):
             b_form.date_added = timezone.now()
             b_form.save()
             return HttpResponseRedirect(reverse("budget"))
-    else:
-        return render(
-            request,
-            "budget/budget.html",
-            context={
-                "user": request.user,
-                "expense_items": expense_items,
-                "total_cost": total_cost,
-                "total_income": total_income,
-                "a_form": a_form,
-                "b_form": b_form,
-                "page_obj": page_obj,
-            },
-        )
+
+    return render(
+        request,
+        "budget/budget.html",
+        context={
+            "user": request.user,
+            "expense_items": expense_items,
+            "total_cost": total_cost,
+            "total_income": total_income,
+            "a_form": a_form,
+            "b_form": b_form,
+            "page_obj": page_obj,
+        },
+    )
 
 
 # def add_income(request):
