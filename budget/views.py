@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from .forms import AddIncome, AddItem
-from .models import BudgetData
+from .models import BudgetData, IncomeData
 
 
 @login_required
@@ -25,14 +25,14 @@ def budget(request):
     total_cost = BudgetData.objects.filter(user_expense=request.user).aggregate(
         Sum("cost")
     )
-    total_income = BudgetData.objects.filter(user_expense=request.user).aggregate(
+    total_income = IncomeData.objects.filter(user_income=request.user).aggregate(
         Sum("income")
     )
 
-    # AddItem{category, cost} form
+    # Instantiating the forms
     a_form = AddItem()
     b_form = AddIncome()
-    # form = AddItem(use_required_attribute=False) # ignores the field required text
+
     if request.method == "POST" and "expense" in request.POST:
         a_form = AddItem(request.POST)
         if a_form.is_valid():
@@ -44,11 +44,12 @@ def budget(request):
     if request.method == "POST" and "income" in request.POST:
         b_form = AddIncome(request.POST)
         if b_form.is_valid():
-            # b_form = b_form.save(commit=False)
-            # b_form.user_expense = request.user
-            # b_form.date_added = timezone.now()
+            b_form = b_form.save(commit=False)
+            b_form.user_income = request.user
+            b_form.date_added = timezone.now()
             b_form.save()
             return HttpResponseRedirect(reverse("budget"))
+        print(b_form.errors)
 
     return render(
         request,

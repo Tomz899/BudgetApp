@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from .models import BudgetData
+from .models import BudgetData, IncomeData
 
 
 class AddItem(ModelForm):
@@ -15,7 +15,7 @@ class AddItem(ModelForm):
 
 class AddIncome(ModelForm):
     class Meta:
-        model = BudgetData
+        model = IncomeData
         fields = ["income"]
         help_texts = {
             "income": ("Add your income."),

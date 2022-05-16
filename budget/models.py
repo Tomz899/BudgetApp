@@ -21,7 +21,15 @@ class BudgetData(models.Model):
     cost = models.FloatField(default=0)
     date_added = models.DateTimeField(default=timezone.now)
     user_expense = models.ForeignKey(User, on_delete=models.CASCADE, default="")
-    income = models.FloatField(default=0)
 
     def __str__(self):
         return f"{self.category} ID: {self.id}"
+
+
+class IncomeData(models.Model):
+    user_income = models.ForeignKey(User, on_delete=models.CASCADE, default="")
+    date_added = models.DateTimeField(default=timezone.now)
+    income = models.FloatField(default=0)
+
+    def __str__(self):
+        return f"{self.user_income} ID: {self.id}"
