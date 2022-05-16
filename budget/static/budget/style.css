@@ -20,14 +20,14 @@ body {
 
 section {
   display: flex;
-  gap: 50px;
+  gap: 30px;
   align-items: top;
   justify-content: space-start;
 }
 
 .form-group {
   height: auto;
-  width: 250px;
+  width: 200px;
   position: relative;
 }
 /* Expanses table */

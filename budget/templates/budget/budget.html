@@ -26,12 +26,12 @@
   </div>
 
   {% for key, value in total_cost.items %}
-  <h1>Total expenses: {{value|floatformat:2}} zł</h1>
+  <h2>Total expenses: {{value|floatformat:2}} zł</h2>
   {% endfor %}
   {% for key, value in total_income.items %}
-  <h1>Total income: {{value|floatformat:2}} zł</h1>
+  <h2>Total income: {{value|floatformat:2}} zł</h2>
   {% endfor %}
-  <h1>Diff: 500 zł</h1>
+  <h2>Diff: 500 zł</h2>
 </section>
 
 <div class="container-sm">
