@@ -12,7 +12,8 @@
     <form method="post">
       {% csrf_token %}
       {{ b_form|crispy }}
-      <input name="income" type="submit" value="Add income">
+      {% comment %} input name should be "income" but there is a problem with validation in view, this is a workaround. {% endcomment %}
+      <input name="expense" type="submit" value="Add income">
     </form>
   </div>
 
