@@ -44,9 +44,9 @@ def budget(request):
     if request.method == "POST" and "income" in request.POST:
         b_form = AddIncome(request.POST)
         if b_form.is_valid():
-            b_form = b_form.save(commit=False)
-            b_form.user_expense = request.user
-            b_form.date_added = timezone.now()
+            # b_form = b_form.save(commit=False)
+            # b_form.user_expense = request.user
+            # b_form.date_added = timezone.now()
             b_form.save()
             return HttpResponseRedirect(reverse("budget"))
 
