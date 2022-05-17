@@ -24,22 +24,22 @@
       <input name="expense" type="submit" value="Add item">
     </form>
   </div>
+  
+    {% for key, value in total_income.items %}
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h1 class="panel-title">Total income:</h1>
+      </div>
+      <div class="panel-body">
+        <h4>{{value|floatformat:2}} zł</h4>
+      </div>
+    </div>
+    {% endfor %}
 
   {% for key, value in total_cost.items %}
   <div class="panel panel-danger">
     <div class="panel-heading">
       <h1 class="panel-title">Total expenses:</h1>
-    </div>
-    <div class="panel-body">
-      <h4>{{value|floatformat:2}} zł</h4>
-    </div>
-  </div>
-  {% endfor %}
-
-  {% for key, value in total_income.items %}
-  <div class="panel panel-success">
-    <div class="panel-heading">
-      <h1 class="panel-title">Total income:</h1>
     </div>
     <div class="panel-body">
       <h4>{{value|floatformat:2}} zł</h4>
