@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
 }
 
 .container {
   height: auto;
-  width: 80%;
+  width: 60%;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   border: 1px solid transparent;
@@ -30,9 +30,12 @@ section {
   width: 200px;
   position: relative;
 }
+.panel {
+  height: 120px;
+}
 /* Expanses table */
 .container-sm {
-  width: 80%;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 5px;
