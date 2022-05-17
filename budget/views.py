@@ -23,11 +23,12 @@ def budget(request):
     page_obj = paginator.get_page(page_number)
 
     total_cost = BudgetData.objects.filter(user_expense=request.user).aggregate(
-        Sum("cost")
+        total_cost=Sum("cost")
     )
     total_income = IncomeData.objects.filter(user_income=request.user).aggregate(
-        Sum("income")
+        total_income=Sum("income")
     )
+    amount_left = sum(total_income.values()) - sum(total_cost.values())
 
     # Instantiating the forms
     a_form = AddItem()
@@ -62,6 +63,7 @@ def budget(request):
             "a_form": a_form,
             "b_form": b_form,
             "page_obj": page_obj,
+            "amount_left": amount_left,
         },
     )
 
