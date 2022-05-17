@@ -26,12 +26,35 @@
   </div>
 
   {% for key, value in total_cost.items %}
-  <h2>Total expenses: {{value|floatformat:2}} zł</h2>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h1 class="panel-title">Total expenses:</h1>
+    </div>
+    <div class="panel-body">
+      <h4>{{value|floatformat:2}} zł</h4>
+    </div>
+  </div>
   {% endfor %}
+
   {% for key, value in total_income.items %}
-  <h2>Total income: {{value|floatformat:2}} zł</h2>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h1 class="panel-title">Total income:</h1>
+    </div>
+    <div class="panel-body">
+      <h4>{{value|floatformat:2}} zł</h4>
+    </div>
+  </div>
   {% endfor %}
-  <h2>Diff: 500 zł</h2>
+
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h1 class="panel-title">Difference:</h1>
+    </div>
+    <div class="panel-body">
+      <h4> 500 zł</h4>
+    </div>
+  </div>
 </section>
 
 <div class="container-sm">
