@@ -10,6 +10,7 @@
 - [Screenshots](#screenshots)
 - [Setup](#setup)
 - [ToDo/Bugs](#todo-bugs)
+- [Contact](#contact)
 
 ## General Information
 
@@ -21,11 +22,14 @@ Soon
 
 ## Technologies Used
 
-- Django - version 3.2.9
-- Python - version 3.8
-- Bootsrap - version 3.4.1
+- Django 3.2.9
+- Python 3.8
+- Bootsrap 3.4.1
+- django-crispy-forms
 
 ## Screenshots
+
+![alt text](https://github.com/Tomz899/BudgetApp/blob/main/img/screen_demo.png?raw=true)
 
 ## Setup
 
@@ -68,3 +72,7 @@ And navigate to `http://127.0.0.1:8000/budget/`.
 - **{todo}** Add calendar and connect it with list of expenses, incomes for filtering options.
 - **{todo}** Add some simple chart.
 - **{todo}** Add ability for users to maintain their income data (similar to expanses).
+
+## Contact
+
+Created by [@me](mailto:tomek.nowak@aol.pl) - if you have any questions, just contact me!
