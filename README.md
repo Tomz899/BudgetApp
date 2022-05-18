@@ -24,7 +24,7 @@ Soon
 
 - Django 3.2.9
 - Python 3.8
-- Bootsrap 3.4.1
+- Bootstrap 3.4.1
 - django-crispy-forms
 
 ## Screenshots
