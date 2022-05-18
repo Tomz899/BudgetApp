@@ -68,6 +68,7 @@ And navigate to `http://127.0.0.1:8000/budget/`.
 ## ToDo Bugs
 
 - ~~**{bug}** Solve NonType issue for amount_left calculation.~~
+- **{todo}** Find a way to solve double request POST issue for income and expanse form - at this moment there is workaround that input names in template are the same = "expanse".
 - **{todo}** In views.py make budget definiton more simple, maybe split for more definitions.
 - **{todo}** Add calendar and connect it with list of expenses, incomes for filtering options.
 - **{todo}** Add some simple chart.
