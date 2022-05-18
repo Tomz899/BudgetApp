@@ -9,7 +9,7 @@
 - [Technologies](#technologies-used)
 - [Screenshots](#screenshots)
 - [Setup](#setup)
-- [ToDo](#todo/bugs)
+- [ToDo](#todo-bugs)
 
 ## General Information
 
@@ -61,7 +61,7 @@ Once `pip` has finished downloading the dependencies:
 
 And navigate to `http://127.0.0.1:8000/budget/`.
 
-## ToDo/Bugs
+## ToDo Bugs
 
 - **{bug}** Solve NonType issue for amount_left calculation.
 - **{todo}** In views.py make budget definiton more simple, maybe split for more definitions.
