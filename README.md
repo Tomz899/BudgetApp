@@ -17,6 +17,18 @@ This is my first application made in django, where you can provide your income a
 
 ## Demo
 
+Soon
+
+## Technologies Used
+
+- Django - version 3.2.9
+- Python - version 3.8
+- Bootsrap - version 3.4.1
+
+## Screenshots
+
+## Setup
+
 The first thing to do is to clone the repository:
 
 ```sh
@@ -34,7 +46,7 @@ $ source venv/bin/activate
 Then install the dependencies:
 
 ```sh
-(env)$ pip install -r requirements.txt
+(venv)$ pip install -r requirements.txt
 ```
 
 Note the `(venv)` in front of the prompt. This indicates that this terminal
@@ -49,14 +61,9 @@ Once `pip` has finished downloading the dependencies:
 
 And navigate to `http://127.0.0.1:8000/budget/`.
 
-## Technologies Used
+## ToDo/Bugs
 
-- Django - version 3.2.9
-- Python - version 3.8
-- Bootsrap - version 3.4.1
-
-## Screenshots
-
-## Setup
-
-## ToDo
+- {bug}Solve NonType issue for amount_left calculation.
+- {todo}In views.py make budget definiton more simple, maybe split for more definitions.
+- {todo}Add calendar and connect it with list of expenses, incomes for filtering options.
+- {todo}Add some simple chart.
