@@ -9,11 +9,11 @@
 - [Technologies](#technologies-used)
 - [Screenshots](#screenshots)
 - [Setup](#setup)
-- [ToDo](#todo)
+- [ToDo](#todo/bugs)
 
 ## General Information
 
-This is my first application made in django, where you can provide your income and expanses and compare them. I used definition based views and tried to make it as simple as i could. For frontend i have used Bootsrap framework.
+This is my first application made in django, where you can provide your income and expanses and compare them. I used definition based views and tried to make it as simple as i could. For frontend i have used Bootstrap framework. Application have user registration and authentication system, so user can see only his data.
 
 ## Demo
 
@@ -55,15 +55,16 @@ session operates in a virtual environment set up by `virtualenv`.
 Once `pip` has finished downloading the dependencies:
 
 ```sh
-(env)$ cd project_name
-(env)$ python manage.py runserver
+(venv)$ cd project_name
+(venv)$ python manage.py runserver
 ```
 
 And navigate to `http://127.0.0.1:8000/budget/`.
 
 ## ToDo/Bugs
 
-- {bug}Solve NonType issue for amount_left calculation.
-- {todo}In views.py make budget definiton more simple, maybe split for more definitions.
-- {todo}Add calendar and connect it with list of expenses, incomes for filtering options.
-- {todo}Add some simple chart.
+- **{bug}** Solve NonType issue for amount_left calculation.
+- **{todo}** In views.py make budget definiton more simple, maybe split for more definitions.
+- **{todo}** Add calendar and connect it with list of expenses, incomes for filtering options.
+- **{todo}** Add some simple chart.
+- **{todo}** Add ability for users to maintain their income data (similar to expanses).
