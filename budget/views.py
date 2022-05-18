@@ -28,7 +28,15 @@ def budget(request):
     total_income = IncomeData.objects.filter(user_income=request.user).aggregate(
         total_income=Sum("income")
     )
-    amount_left = sum(total_income.values()) - sum(total_cost.values())
+    # Below is the amount_left calulation with solution for nontype error.
+    try:
+        amount_left = sum(total_income.values()) - sum(total_cost.values())
+    except TypeError:
+        print("total_cost or total_income have no data")
+    except:
+        amount_left = sum(total_income.values())
+    finally:
+        amount_left = ""
 
     # Instantiating the forms
     a_form = AddItem()
@@ -66,25 +74,6 @@ def budget(request):
             "amount_left": amount_left,
         },
     )
-
-
-# def add_income(request):
-#     if request.method == "POST":
-#         form = AddIncome(request.POST)
-#         if form.is_valid():
-#             form = form.save(commit=False)
-#             form.user_expense = request.user
-#             form.save()
-#             return HttpResponseRedirect(reverse("budget"))
-#     else:
-#         return render(
-#             request,
-#             "budget/budget.html",
-#             context={
-#                 "user": request.user,
-#                 "form": form,
-#             },
-#         )
 
 
 def delete_item(request, user_id):
