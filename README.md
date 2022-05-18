@@ -9,7 +9,7 @@
 - [Technologies](#technologies-used)
 - [Screenshots](#screenshots)
 - [Setup](#setup)
-- [ToDo](#todo-bugs)
+- [ToDo/Bugs](#todo-bugs)
 
 ## General Information
 
